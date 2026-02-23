@@ -1,0 +1,70 @@
+//Advanced Drawing Commands
+
+//Set the size
+size( 800, 800 );
+
+//Color with transparency (red, green, blue, alpha)
+fill( 200, 50, 150, 50);
+
+//Clear circles
+circle(120, 100, 100);
+circle(150, 150, 100);
+circle(180, 100, 100);
+
+//Arc (ellipse, but add start and end points)
+fill( 50, 200, 150 );
+arc( 600, 100, 200, 150, HALF_PI, TWO_PI );
+fill( 150, 50, 200 );
+arc( 600, 300, 200, 150, PI, TWO_PI );
+fill( 200, 150, 50 );
+arc( 600, 500, 200, 150, PI*1.5, TWO_PI );
+fill( 200, 50, 150 );
+arc( 600, 700, 200, 150, PI*1.5, PI*2.75, CHORD );
+
+//Gradient (series of bars that change color)
+noStroke();
+for (int i = 0; i < 100; i++)
+{
+  fill(250-i*2.5, 0, i*2.5);
+  rect(50, 250+i*2, 200, 2);
+}
+
+//Rounded Rectangle (x-pos, y-pos, width, height, corner)
+fill( 250, 250, 0 );
+rect( 325, 50, 100, 100, 10 );
+rect( 325, 170, 100, 100, 20 );
+rect( 325, 290, 100, 100, 50 );
+rect( 325, 410, 100, 100, 0, 10, 20, 30 ); //each corner different
+
+//Shape of many straight lines
+fill(0, 200, 200);
+stroke(200, 0, 0);
+strokeWeight(2);
+beginShape();
+vertex(50, 600);
+vertex(150, 500);
+vertex(250, 550);
+vertex(200, 650);
+vertex(250, 700);
+vertex(100, 670);
+vertex(50, 600);
+endShape();
+
+//Shape of many lines, with curves (very hard)
+fill(#8A68C6); //hex code
+stroke(50, 175, 0);
+beginShape();
+vertex(300, 550);
+vertex(450, 550);
+bezierVertex(350, 650, 450, 700, 450, 700);
+vertex(300, 700);
+bezierVertex(400, 600, 300, 550, 300, 550);
+endShape();
+
+//Curves (control, control, start, start, end, end, control, control)
+stroke(200, 0, 200);
+fill(0, 200, 0);
+curve(50, 550, 50, 750, 500, 750, 500, 950);
+stroke(250, 150, 0);
+noFill();
+curve(50, 1225, 50, 725, 500, 775, 500, 275);
