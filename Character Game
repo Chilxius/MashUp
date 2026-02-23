@@ -1,0 +1,129 @@
+//Mash-Up Program
+//Custom character moving and bouncing around a screen
+
+// *** Main Page *** //
+
+Player bob = new Player();
+
+void setup()
+{
+  size(1500,900);
+}
+void draw()
+{
+  //background(0,0,200);   //Use this to erase trails
+  
+  //fill(0,0,0, 5);        //Use this instead of background
+  //rect(0,0,width,height);//to make ghosting trails
+  
+  bob.show();
+  bob.update();
+}
+void keyPressed()
+{
+  bob.direct(key,true);
+}
+void keyReleased()
+{
+  bob.direct(key,false);
+}
+
+
+// *** Player Page *** //
+
+class Player
+{
+  float xPos, yPos;
+  float xSpd, ySpd;
+  float speed = 5; //acceleration
+
+  //Track what direction(s) we are moving
+  boolean u, d, l, r;
+
+  //Make changes
+  void update()
+  {
+    //Accelerate
+    if( u ) ySpd -= speed;
+    if( l ) xSpd -= speed;
+    if( d ) ySpd += speed;
+    if( r ) xSpd += speed;
+    
+    //Move
+    xPos += xSpd;
+    yPos += ySpd;
+    
+    //Gravity
+    //ySpd += 0.98;
+    
+    //Friction
+    xPos *= 0.95;
+    yPos *= 0.95;
+    
+    //Bounce
+    if( xPos < 0 ) xSpd = 10; //xPos = width;
+    if( xPos > width ) xSpd = -10; //xPos = 0;
+    if( yPos < 0 ) ySpd = 10;
+    if( yPos > height ) ySpd = -10;
+  }
+
+  //Get directions
+  void direct( char k, boolean pressed )
+  {
+    if( k == 'w' ) u = pressed;
+    if( k == 'a' ) l = pressed;
+    if( k == 's' ) d = pressed;
+    if( k == 'd' ) r = pressed;
+  }
+
+  //This is where the character you made will go.
+  //I have included my own creature.
+  void show()
+  {
+    push();
+    translate(xPos,yPos);
+    fill(#4F5771);
+    //Legs (Back)
+    stroke(#404455);
+    strokeWeight(25);
+    line(-20,5, 5,35);
+    //Tail
+    stroke(#4F5771);
+    strokeWeight(40);
+    noFill();
+    curve(500,-300, -60,70, 0,-75, 320,-100);
+    //Body
+    fill(#4F5771);
+    noStroke();
+    arc(0,0, 175,190, PI*1.05, PI*2.05);arc(0,0, 185,40, PI*0.15, PI*1.25, CHORD);
+    //Legs (Front)
+    stroke(#4F5771);
+    strokeWeight(25);
+    line(75,0, 66,60);line(15,5, 25,55);line(-50,5, -25,40);
+    //Head
+    fill(#5F6474);
+    noStroke();
+    fill(0);
+    triangle(10,-40, 95,-30, 45,-5);
+    fill(#5F6474);
+    triangle(10,-40, 95,-30, 45,-15);
+    quad(45,30, 5,-5, 50,-40, 90,5);
+    //Nose
+    fill(20);
+    circle(45,20,12);
+    //Eyes
+    fill(#929AB4);
+    circle(35,-7,8);circle(60,-2,8);
+    fill(#95755B);
+    stroke(0);
+    strokeWeight(0.5);
+    circle(35,-5,5);circle(60,0,5);
+    //Whiskers
+    noFill();
+    stroke(255);
+    strokeWeight(0.5);
+    line(55,15, 78,10);line(53,17, 80,17);line(53,19, 79,24);line(55,21, 75,31);
+    line(35,13, 14,0);line(36,15, 12,7);line(36,17, 12,14);line(35,19, 15,21);
+    pop();
+  }
+}
