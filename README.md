@@ -10,4 +10,4 @@ The Character Starter was the program we used to make our characters - it has th
 Processing is free and easy to download: https://processing.org/download
 Their site has a lot of useful information and guides to get started: https://hello.processing.org/editor/
 
-Every program you write builds skills and experience. Every act of creation comes more naturally than the last. The greatest achievements are built on hundreds of experiments, so start experimenting.
+Every program you write builds skills and experience. Every act of creation comes more naturally than the last. The greatest achievements are built on a foundation of hundreds of experiments, so start experimenting.
