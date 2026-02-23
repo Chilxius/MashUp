@@ -1,0 +1,53 @@
+//Basic Drawing Commands
+
+//Set the size
+size( 800, 800 );
+
+//Change Color (red, green, blue)
+fill( 200, 0, 0);
+
+//Circle (x-pos, y-pos, diameter)
+circle( 100, 100, 120 );
+
+//Ellipse (x-pos, y-pos, width, height)
+fill( 200, 150, 0 );
+ellipse( 300, 100, 80, 120 );
+
+//Square (x-pos, y-pos, side length)
+fill( 200, 200, 0 );
+square( 450, 50, 120 );
+
+//Rectangle (x-pos, y-pos, width, height)
+fill( 0, 200, 0 );
+rect( 650, 50, 120, 80 );
+
+//Triangle ( x1,y1, x2,y2, x3,y3 )
+fill( 0, 0, 200 );
+triangle( 100,300,  300,300,  100,500 );
+
+//Remove Outline
+noStroke();
+fill( 100, 0, 200 );
+circle( 600, 300, 100 );
+circle( 650, 300, 100 );
+circle( 550, 300, 100 );
+
+//Remove Fill
+noFill();
+strokeWeight(5);
+stroke( 200, 0, 0 );
+circle(600, 450, 100 );
+stroke( 200, 200, 0 );
+circle(625, 475, 100 );
+stroke( 0, 0, 200 );
+circle(575, 475, 100 );
+
+//Lines (outline must be on)
+line(100,600, 700,600);
+line(100,610, 700,590);
+line(100,620, 700,580);
+
+//Quadrangle (x1,y1, x2,y2, x3,y3, x4,y4)
+fill(0,200,0);
+stroke(200,0,0);
+quad(20,780,  780,780,  700,700,  100, 700);
