@@ -1,0 +1,39 @@
+//Character Maker Program
+void show()
+{
+  translate(xPos,yPos);
+  
+  
+  
+  
+}
+
+void setup()
+{
+  size(300,300);
+  noFill();
+  circle(150,150,200);
+  fill(255);
+  show();
+  grid();
+}
+
+float xPos = 150, yPos = 150;
+
+//Draws the grid
+void grid()
+{
+  push();
+  translate(-150,-150);
+  stroke(125,125);
+  strokeWeight(0.5);
+  textSize(10);
+  for(int i = 20; i < 300; i+= 20)
+  {
+    text(i-150,i,7);
+    line(i,0,i,height);
+    text(i-150,0,i);
+    line(0,i,width,i);
+  }
+  pop();
+}
